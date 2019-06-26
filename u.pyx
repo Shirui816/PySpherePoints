@@ -21,4 +21,5 @@ def u(double[:,:] x):
 				ret += 1 / sqrt(tmp)
 				#ret = ret + 1 / sqrt(tmp)
 				# do not make it this way: reduction variable & thread-private
+				# ret = ret + ... produces nan results
 	return ret
