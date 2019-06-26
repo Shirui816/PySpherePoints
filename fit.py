@@ -30,13 +30,13 @@ def n1(x):
     return u_jit(x)
 
 
-def n2(x):
+def n2(x):  # fastest while N > 1000 particles, ~1 ms for N=1000
     x = x.reshape(-1, 3)
     x = x / np.linalg.norm(x, axis=1)[:, None]
     return u(x)
 
 
-def n3(x):  # fastest, if ram is sufficient
+def n3(x):  # fastest, if N is small, i.e. N << 1000 particles
     x = x.reshape(-1, 3)  # reshape to 3-D
     # transfer to unit vectors to calculate the energy.
     x = x / np.linalg.norm(x, axis=1)[:, None]
