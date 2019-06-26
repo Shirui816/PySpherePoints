@@ -18,5 +18,7 @@ def u(double[:,:] x):
 				tmp = 0
 				for k in range(x.shape[1]):
 					tmp = tmp + pow(x[i,k]-x[j,k],2)
-				ret = ret + 1 / sqrt(tmp)
+				ret += 1 / sqrt(tmp)
+				#ret = ret + 1 / sqrt(tmp)
+				# do not make it this way: reduction variable & thread-private
 	return ret

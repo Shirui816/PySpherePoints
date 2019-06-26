@@ -17,3 +17,6 @@ setup(
     cmdclass={"build_ext": build_ext},
     ext_modules=ext_modules
 )
+
+# python setup.py build_ext
+# --inplace option creates .so file in the current directory
