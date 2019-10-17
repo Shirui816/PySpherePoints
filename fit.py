@@ -61,7 +61,7 @@ def n4(x, ratio):  # Ellipsoid support
     norm = np.linalg.norm(x/ratio, axis=1)
     #x = x / np.linalg.norm(x, axis=1)[:, None]
     #x = x * ratio
-    return uf(x, norm, ratio)
+    return uf(x/norm[:,None], ratio)
 
 
 
