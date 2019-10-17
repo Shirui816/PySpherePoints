@@ -47,7 +47,9 @@ def n3(x):  # fastest, if N is small, i.e. N << 1000 particles
 # a x' = x / r with r = sqrt((x/a)^2+(y/b)^2+(z/c)^2)
 # The function first map x -> x / ratio then
 # normalize the (x/a, y/b, z/c) vector -> x', y', z'; afterwards
-# energy is calculated as u((x', y',z') \times ratio).
+# energy is calculated as u((x', y',z') \times ratio). 
+# for (x', y', z') is normalized, (x', y', z')\times ratio is
+# on the ellipsoid surface.
 # Therefore the derivative is calculated as
 # D[1/sqrt((u-a x')^2+(v-b y')^2+(w-c z')^2), x]
 # let f = 1/sqrt((u-a x')^2+(v-b y')^2+(w-c z')^2) then
