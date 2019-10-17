@@ -65,7 +65,12 @@ def n4(x, ratio):  # Ellipsoid support
 
 
 
+ratio = np.array([1.,1,2])
+
 # x0 = (N\times 3,) points, for scipy.optimize.minimize takes 1-D array as input.
-res = minimize(n3, x0=np.random.random((300,)))
-ret = res.x.reshape(-1, 3)
-np.savetxt('out.txt', ret / np.linalg.norm(ret, axis=1)[:, None], fmt='%.6f')
+res = minimize(n4, x0=np.random.random((600,)), args=(ratio,), jac=True, tol=1e-3, options=dict(maxiter=1000, disp=True))
+#print(res)
+ret = res.x.reshape(-1, 3)/ratio
+ret = ret / np.linalg.norm(ret, axis=-1)[:, None]
+ret = ret * ratio
+np.savetxt('out.txt', ret, fmt='%.6f')
